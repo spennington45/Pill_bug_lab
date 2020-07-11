@@ -1,5 +1,5 @@
-/* 
-Button Script  version 1.0 
+/*
+Button Script  version 1.0
 Date: 7 July 2020
 Author: Steven Pennington
 
@@ -10,7 +10,7 @@ This script runs buttons for pill bug lab
 // Check that document is fully loaded
 $(document).ready(function(){
 
-	// Below are the two separate functions executing to 
+	// Below are the two separate functions executing to
 	var percentChance = 50;
 	// set the single or plural variable for minute(s)
 	// and the time lapsed count to zero
@@ -20,27 +20,82 @@ $(document).ready(function(){
 	var dish1count = [];
 	var dish2count = [];
 	var report = [];
+	var buttonOneOn = false;
+	var buttonTwoOn = false;
+	var buttonThreeOn = false;
+	var buttonFourOn = false;
 
-	
 
-	$("#buttion_one").on( "click", function() {
-     		
-     	// change color
-		document.documentElement.style.setProperty("--color", "green");
-		alert( "clicked" );
-			
+	$("#button_one").on( "click", function() {
+
+     	// change color and check if button is on or off
+		if (buttonOneOn === false && buttonTwoOn === false) {
+			document.documentElement.style.setProperty("--colorLeft", "lightblue");
+			buttonOneOn = true;
+		} else if (buttonOneOn === true && buttonTwoOn === false) {
+			document.documentElement.style.setProperty("--colorLeft", "white");
+			buttonOneOn = false;
+		} else if (buttonOneOn === true && buttonTwoOn === true) {
+			document.documentElement.style.setProperty("--colorLeft", "lightgreen");
+			buttonOneOn = false;
+		} else if (buttonOneOn === false && buttonTwoOn === true) {
+			document.documentElement.style.setProperty("--colorLeft", "lightgray");
+			buttonOneOn = true;
+		}
  	});
- 	//$('#panel_three_reset_button').on({'click': function(){
-     		
-     	// Swaps the image
-		//$('#panel_three_pic_one').attr('src','images/lipids_plate_one.png');
-		//enable buttons
-		//document.getElementById("panel_three_button").disabled = false;
-     		} 
- 	//});
- 
+
+	$("#button_two").on( "click", function() {
+
+     	// change color and check if button is on or off
+		if (buttonOneOn === false && buttonTwoOn === false) {
+			document.documentElement.style.setProperty("--colorLeft", "lightgreen");
+			buttonTwoOn = true;
+		} else if (buttonOneOn === false && buttonTwoOn === true) {
+			document.documentElement.style.setProperty("--colorLeft", "white");
+			buttonTwoOn = false;
+		} else if (buttonOneOn === true && buttonTwoOn === true) {
+			document.documentElement.style.setProperty("--colorLeft", "lightblue");
+			buttonTwoOn = true;
+		} else if (buttonOneOn === true && buttonTwoOn === false) {
+			document.documentElement.style.setProperty("--colorLeft", "lightgray");
+			buttonTwoOn = true;
+		}
+ 	});
+
+	$("#button_three").on( "click", function() {
+
+     	// change color and check if button is on or off
+		if (buttonThreeOn === false && buttonFourOn === false) {
+			document.documentElement.style.setProperty("--colorLeft", "lightblue");
+			buttonThreeOn = true;
+		} else if (buttonThreeOn === true && buttonFourOn === false) {
+			document.documentElement.style.setProperty("--colorLeft", "white");
+			buttonThreeOn = false;
+		} else if (buttonThreeOn === true && buttonFourOn === true) {
+			document.documentElement.style.setProperty("--colorLeft", "lightgreen");
+			buttonThreeOn = false;
+		} else if (buttonThreeOn === false && buttonFourOn === true) {
+			document.documentElement.style.setProperty("--colorLeft", "lightgray");
+			buttonThreeOn = true;
+		}
+ 	});
+
+$("#button_four").on( "click", function() {
+
+     	// change color and check if button is on or off
+		if (buttonThreeOn === false && buttonFourOn === false) {
+			document.documentElement.style.setProperty("--colorLeft", "lightgreen");
+			buttonFourOn = true;
+		} else if (buttonThreeOn === false && buttonFourOn === true) {
+			document.documentElement.style.setProperty("--colorLeft", "white");
+			buttonFourOn = false;
+		} else if (buttonThreeOn === true && buttonFourOn === true) {
+			document.documentElement.style.setProperty("--colorLeft", "lightblue");
+			buttonFourOn = true;
+		} else if (buttonThreeOn === true && buttonFourOn === false) {
+			document.documentElement.style.setProperty("--colorLeft", "lightgray");
+			buttonFourOn = true;
+		}
+ 	});
+
  });
- 
-
-
- 

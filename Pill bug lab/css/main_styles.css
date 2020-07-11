@@ -1,7 +1,8 @@
 /* CSS Main Style Sheet for the Pill bug lab */
 /* Author Mark Bromwich and Steven Pennington      Date 3 July 2020  */
 :root {
-	--color: white;
+	--colorLeft: white;
+	--colorRight: white;
 }
 
 
@@ -72,15 +73,7 @@ p {
 .left_circle {
   height: 300px;
   width: 300px;
-  background-color: var(--color);
-  border-radius: 50%;
-  border-style: solid;
-}
-
-.green_circle {
-  height: 300px;
-  width: 300px;
-  background-color: green;
+  background-color: var(--colorLeft);
   border-radius: 50%;
   border-style: solid;
 }
@@ -88,7 +81,7 @@ p {
 .right_circle {
   height: 300px;
   width: 300px;
-  background-color: var(--color);
+  background-color: var(--colorRight);
   border-radius: 50%;
   border-style: solid;
 }
