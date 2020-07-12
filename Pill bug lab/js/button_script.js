@@ -24,6 +24,7 @@ $(document).ready(function(){
 	var buttonTwoOn = false;
 	var buttonThreeOn = false;
 	var buttonFourOn = false;
+	var modify = 1;
 
 
 	$("#button_one").on( "click", function() {
@@ -55,7 +56,7 @@ $(document).ready(function(){
 			buttonTwoOn = false;
 		} else if (buttonOneOn === true && buttonTwoOn === true) {
 			document.documentElement.style.setProperty("--colorLeft", "lightblue");
-			buttonTwoOn = true;
+			buttonTwoOn = false;
 		} else if (buttonOneOn === true && buttonTwoOn === false) {
 			document.documentElement.style.setProperty("--colorLeft", "lightgray");
 			buttonTwoOn = true;
@@ -66,16 +67,16 @@ $(document).ready(function(){
 
      	// change color and check if button is on or off
 		if (buttonThreeOn === false && buttonFourOn === false) {
-			document.documentElement.style.setProperty("--colorLeft", "lightblue");
+			document.documentElement.style.setProperty("--colorRight", "lightblue");
 			buttonThreeOn = true;
 		} else if (buttonThreeOn === true && buttonFourOn === false) {
-			document.documentElement.style.setProperty("--colorLeft", "white");
+			document.documentElement.style.setProperty("--colorRight", "white");
 			buttonThreeOn = false;
 		} else if (buttonThreeOn === true && buttonFourOn === true) {
-			document.documentElement.style.setProperty("--colorLeft", "lightgreen");
+			document.documentElement.style.setProperty("--colorRight", "lightgreen");
 			buttonThreeOn = false;
 		} else if (buttonThreeOn === false && buttonFourOn === true) {
-			document.documentElement.style.setProperty("--colorLeft", "lightgray");
+			document.documentElement.style.setProperty("--colorRight", "lightgray");
 			buttonThreeOn = true;
 		}
  	});
@@ -84,18 +85,42 @@ $("#button_four").on( "click", function() {
 
      	// change color and check if button is on or off
 		if (buttonThreeOn === false && buttonFourOn === false) {
-			document.documentElement.style.setProperty("--colorLeft", "lightgreen");
+			document.documentElement.style.setProperty("--colorRight", "lightgreen");
 			buttonFourOn = true;
 		} else if (buttonThreeOn === false && buttonFourOn === true) {
-			document.documentElement.style.setProperty("--colorLeft", "white");
+			document.documentElement.style.setProperty("--colorRight", "white");
 			buttonFourOn = false;
 		} else if (buttonThreeOn === true && buttonFourOn === true) {
-			document.documentElement.style.setProperty("--colorLeft", "lightblue");
-			buttonFourOn = true;
+			document.documentElement.style.setProperty("--colorRight", "lightblue");
+			buttonFourOn = false;
 		} else if (buttonThreeOn === true && buttonFourOn === false) {
-			document.documentElement.style.setProperty("--colorLeft", "lightgray");
-			buttonFourOn = true;
+			document.documentElement.style.setProperty("--colorRight", "lightgray");
+		 	buttonFourOn = true;
 		}
  	});
+
+	$("#button_five").on( "click", function() {
+			alert("modify = " modify)
+	     	// Generate a random number for the exp and modify it
+			if (buttonOneOn === True) {
+				modify += 0.01;
+			}
+			if (buttonTwoOn === true) {
+				modify += 0.02;
+			}
+			if (buttonThreeOn === true) {
+				modify -= 0.01;
+			}
+			if (buttonFourOn === true) {
+				modify -= 0.02;
+			}
+			var num = Math.floor(Math.random());
+			var numMod = num + modify;
+			if (tiral < 11) {
+				if (buttonOneOn === true) {
+					modify
+				}
+			}
+	 	});
 
  });
