@@ -10,21 +10,28 @@ This script runs buttons for pill bug lab
 // Check that document is fully loaded
 $(document).ready(function(){
 
-	// Below are the two separate functions executing to
-	var percentChance = 50;
-	// set the single or plural variable for minute(s)
-	// and the time lapsed count to zero
-	var sp = "";
-	var tl = 0;
-	var trial = 1;
-	var dish1count = [];
-	var dish2count = [];
+	var trial = 0;
+	var dish1count = 5;
+	var dish2count = 5;
 	var report = [];
 	var buttonOneOn = false;
 	var buttonTwoOn = false;
 	var buttonThreeOn = false;
 	var buttonFourOn = false;
-	var modify = 1;
+	var modify = 0;
+
+	window.onload = function() {
+		for (var i = 0; i < dish1count; i++) {
+			var xpos = Math.random(300);
+			var ypos = Math.random(300);
+			document.getElementById("left_circle").getContext("2d").drawImage("images/pillbug.png", xpos, ypos);
+		}
+		for (var i = 0; i < dish2count; i++) {
+			var xpos = Math.random(300);
+			var ypos = Math.random(300);
+			document.getElementById("right_circle").getContext("2d").drawImage("images/pillbug.png", xpos, ypos);
+		}
+	};
 
 
 	$("#button_one").on( "click", function() {
@@ -100,27 +107,68 @@ $("#button_four").on( "click", function() {
  	});
 
 	$("#button_five").on( "click", function() {
-			alert("modify = " modify)
-	     	// Generate a random number for the exp and modify it
-			if (buttonOneOn === True) {
-				modify += 0.01;
+		alert("modify = " modify)
+	 	// Generate a random number for the exp and modify it
+		if (buttonOneOn === true) {
+			modify -= 0.01;
+		}
+		if (buttonTwoOn === true) {
+			modify -= 0.02;
+		}
+		if (buttonThreeOn === true) {
+			modify += 0.01;
+		}
+		if (buttonFourOn === true) {
+			modify += 0.02;
+		}
+		var num = Math.floor(Math.random());
+		var numMod = num + modify;
+		// build report as button five is pressed and progress to the next minute
+		if (tiral < 11) {
+			report.push([trial(-1), dish1count, dish2count]);
+			trial += 1;
+			if (numMod <= 0) {
+				dish1count += 5;
+			} else if (numMod <= 0.10) {
+				dish1count += 4;
+			} else if (numMod <= 0.20) {
+				dish1count += 3;
+			} else if (numMod <= 0.30) {
+				dish1count += 2;
+			} else if (numMod <= 0.04) {
+				dish1count += 1;
+			} else if (numMod >= 1) {
+				dish1count -= 5;
+			} else if (numMod >= 0.90) {
+				dish1count -= 4;
+			} else if (numMod >= 0.80) {
+				dish1count -= 3;
+			} else if (numMod >= 0.70) {
+				dish1count -= 2;
+			} else if (numMod >= 0.60) {
+				dish1count -= 1;
 			}
-			if (buttonTwoOn === true) {
-				modify += 0.02;
+			//make sure count is within range of 0-10
+			if (dish1count > 10) {
+				dish1count = 10;
+			} else if (dish1count < 0) {
+				dish1count = 0;
 			}
-			if (buttonThreeOn === true) {
-				modify -= 0.01;
+			// set count in each dish
+			dish2count = 10 - dish1count;
+			//darw images
+			for (var i = 0; i < dish1count; i++) {
+				var xpos = Math.random(300);
+				var ypos = Math.random(300);
+				document.getElementById("left_circle").getContext("2d").drawImage("images/pillbug.png", xpos, ypos);
 			}
-			if (buttonFourOn === true) {
-				modify -= 0.02;
+			for (var i = 0; i < dish2count; i++) {
+				var xpos = Math.random(300);
+				var ypos = Math.random(300);
+				document.getElementById("right_circle").getContext("2d").drawImage("images/pillbug.png", xpos, ypos);
 			}
-			var num = Math.floor(Math.random());
-			var numMod = num + modify;
-			if (tiral < 11) {
-				if (buttonOneOn === true) {
-					modify
-				}
-			}
-	 	});
+			//Make variales for the numbers to be displayed in each dish
+		} else //display report and reset button
+	 });
 
- });
+});
