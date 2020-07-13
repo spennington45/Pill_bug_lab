@@ -107,29 +107,28 @@ $("#button_four").on( "click", function() {
  	});
 
 	$("#button_five").on( "click", function() {
-		alert("modify = " modify)
-	 	// Generate a random number for the exp and modify it
-		if (buttonOneOn === true) {
+		// Generate a random number for the exp and modify it
+		if (buttonOneOn) {
 			modify -= 0.01;
 		}
-		if (buttonTwoOn === true) {
+		if (buttonTwoOn) {
 			modify -= 0.02;
 		}
-		if (buttonThreeOn === true) {
+		if (buttonThreeOn) {
 			modify += 0.01;
 		}
-		if (buttonFourOn === true) {
+		if (buttonFourOn) {
 			modify += 0.02;
 		}
-		var num = Math.floor(Math.random());
+		var num = Math.random();
 		var numMod = num + modify;
 		// build report as button five is pressed and progress to the next minute
-		if (tiral < 11) {
-			report.push([trial(-1), dish1count, dish2count]);
+		if (trial < 11) {
+			report.push([trial, dish1count, dish2count]);
 			trial += 1;
 			if (numMod <= 0) {
 				dish1count += 5;
-			} else if (numMod <= 0.10) {
+			}  else if (numMod <= 0.10) {
 				dish1count += 4;
 			} else if (numMod <= 0.20) {
 				dish1count += 3;
@@ -156,19 +155,19 @@ $("#button_four").on( "click", function() {
 			}
 			// set count in each dish
 			dish2count = 10 - dish1count;
-			//darw images
 			for (var i = 0; i < dish1count; i++) {
 				var xpos = Math.random(300);
 				var ypos = Math.random(300);
-				document.getElementById("left_circle").getContext("2d").drawImage("images/pillbug.png", xpos, ypos);
+				document.getElementById('fileinput').addEventListener('add', function() {
+
+				});
 			}
 			for (var i = 0; i < dish2count; i++) {
 				var xpos = Math.random(300);
 				var ypos = Math.random(300);
-				document.getElementById("right_circle").getContext("2d").drawImage("images/pillbug.png", xpos, ypos);
+				document.getElementById("right_circle").drawImage("images/pillbug.png", xpos, ypos);
 			}
-			//Make variales for the numbers to be displayed in each dish
-		} else //display report and reset button
+		}
 	 });
 
 });
