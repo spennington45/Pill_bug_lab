@@ -63,11 +63,13 @@ p {
 .pick_one {
 	wider: 30%;
 	height: auto;
+	z-index: 10;
 }
 
 .pick_two {
 	wider: 30%;
 	height: auto;
+	z-index: 10;
 }
 
 .left_circle {

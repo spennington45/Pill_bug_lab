@@ -27,7 +27,7 @@ $(document).ready(function() {
     for (i = 0; i < dish1count; i++) {
       xpos = Math.random(300);
       ypos = Math.random(300);
-      document.querySelector("left_canvas").getContext("2d").drawImage("images/pillbug.png", xpos, ypos);
+      document.getElementById("left_canvas").drawImage("images/pillbug.png", xpos, ypos);
     }
     for (i = 0; i < dish2count; i++) {
       xpos = Math.random(300);
@@ -158,18 +158,18 @@ $(document).ready(function() {
       }
       // set count in each dish
       dish2count = 10 - dish1count;
-      for (i = 0; i < dish1count; i++) {
-        xpos = Math.random(300);
-        ypos = Math.random(300);
-        document.getElementById('fileinput').addEventListener('add', function() {
-
-        });
-      }
-      for (i = 0; i < dish2count; i++) {
-        xpos = Math.random(300);
-        ypos = Math.random(300);
-        document.getElementById("right_circle").drawImage("images/pillbug.png", xpos, ypos);
-      } //TODO: add result portion of function
+      // for (i = 0; i < dish1count; i++) {
+      //   xpos = Math.random(300);
+      //   ypos = Math.random(300);
+      //   document.getElementById('fileinput').addEventListener('add', function() {
+      //
+      //   });
+      // }
+      // for (i = 0; i < dish2count; i++) {
+      //   xpos = Math.random(300);
+      //   ypos = Math.random(300);
+      //   document.getElementById("right_circle").drawImage("images/pillbug.png", xpos, ypos);
+      // } //TODO: add result portion of function
     }
   });
 
