@@ -26,14 +26,6 @@ $(document).ready(function() {
 
   window.onload = bug_draw();
 
-  function idAllTheBugs() {
-
-    let roaches = [];
-    roaches = document.querySelectorAll("");
-
-  }
-
-
 
   function bug_draw() {
 
@@ -186,6 +178,14 @@ $(document).ready(function() {
       }
       // set count in each dish
       dish2count = 10 - dish1count;
+      // Resets left canvas
+      const parentLeft = document.getElementById('div-left');
+      parentLeft.innerHTML = "";
+      const reloadedCanvasLeft = document.createElement('canvas');
+      reloadedCanvasLeft.setAttribute('id', 'left_circle');
+      reloadedCanvasLeft.setAttribute('style', 'height: 300px; width: 300px; border: 1px solid #000;');
+      parentLeft.appendChild(reloadedCanvasLeft);
+      // Draws bugs on left canvas
       for (i = 0; i < dish1count; i++) {
         xpos = Math.floor(Math.random(300) * 100);
         ypos = Math.floor(Math.random(300) * 100);
@@ -194,6 +194,14 @@ $(document).ready(function() {
         var img = document.getElementById("pic_two");
         ctx.drawImage(img, xpos, ypos, 30, 30);
       }
+      //resets right canvas
+      const parentRight = document.getElementById('div-right');
+      parentRight.innerHTML = "";
+      const reloadedCanvasRight = document.createElement('canvas');
+      reloadedCanvasRight.setAttribute('id', 'Right_circle');
+      reloadedCanvasRight.setAttribute('style', 'height: 300px; width: 300px; border: 1px solid #000;');
+      parentRight.appendChild(reloadedCanvasRight);
+      // Draws bugs on right canvas
       for (i = 0; i < dish2count; i++) {
         xpos = Math.floor(Math.random(300) * 250);
         ypos = Math.floor(Math.random(300) * 100);
