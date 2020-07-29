@@ -195,10 +195,10 @@ $(document).ready(function() {
         ctx.drawImage(img, xpos, ypos, 30, 30);
       }
       //resets right canvas
-      const parentRight = document.getElementById('div-right');
+      const parentRight = document.getElementById("div-right");
       parentRight.innerHTML = "";
       const reloadedCanvasRight = document.createElement('canvas');
-      reloadedCanvasRight.setAttribute('id', 'Right_circle');
+      reloadedCanvasRight.setAttribute('id', 'right_circle');
       reloadedCanvasRight.setAttribute('style', 'height: 300px; width: 300px; border: 1px solid #000;');
       parentRight.appendChild(reloadedCanvasRight);
       // Draws bugs on right canvas
