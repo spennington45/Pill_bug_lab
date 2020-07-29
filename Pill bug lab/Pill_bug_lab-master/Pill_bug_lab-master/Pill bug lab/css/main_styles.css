@@ -1,0 +1,97 @@
+/* CSS Main Style Sheet for the Pill bug lab */
+/* Author Mark Bromwich and Steven Pennington      Date 3 July 2020  */
+:root {
+	--colorLeft: white;
+	--colorRight: white;
+}
+
+
+* {
+
+	font-family: helvetica;
+	font-size: 1em;
+
+}
+
+body {
+	margin: 30px 0px;
+	background-color: #999;
+	text-align: center;
+}
+
+h1 {
+	color: blue;
+	text-align: center;
+	font-size: 50px;
+}
+
+h2 {
+	color: yellow;
+	alpha: 50%;
+	font-size: 50px;
+	text-align: center;
+	opacity: 0.4;
+}
+
+.grid-container0 {
+  display: grid;
+  grid-template-columns: auto 300px 300px auto;
+  background: blue;
+  margin: 0% 20%;
+  text-align: center
+}
+
+.grid-container1 {
+  display: grid;
+  grid-template-columns: auto 300px 300px auto;
+  background: linear-gradient(blue, lightblue);
+  margin: 0% 20%;
+  text-align: center
+}
+
+.grid-container2 {
+  display: grid;
+  background: lightblue;
+  margin: 0% 20%;
+}
+
+p {
+	text-align: left;
+	margin-left: 20px;
+}
+
+.pick_one {
+	wider: 30%;
+	height: auto;
+}
+
+.pick_two {
+	wider: 30%;
+	height: auto;
+}
+
+.left_circle {
+  height: 300px;
+  width: 300px;
+  background-color: var(--colorLeft);
+  border-radius: 50%;
+  border-style: solid;
+}
+
+.right_circle {
+  height: 300px;
+  width: 300px;
+  background-color: var(--colorRight);
+  border-radius: 50%;
+  border-style: solid;
+}
+
+.button {
+	margin: 20px;
+}
+
+.button_five {
+	margin: 20px;
+	background-color: orange;
+	padding: 10px;
+}

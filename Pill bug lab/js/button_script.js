@@ -19,22 +19,50 @@ $(document).ready(function() {
   var buttonThreeOn = false;
   var buttonFourOn = false;
   var modify = 0;
-	var xpos = 0;
-	var ypos = 0;
-	var i = 0;
+  var xpos = 0;
+  var ypos = 0;
+  var i = 0;
 
-  window.onload = function() {
+
+  window.onload = bug_draw();
+
+  function idAllTheBugs() {
+
+    let roaches = [];
+    roaches = document.querySelectorAll("");
+
+  }
+
+
+
+  function bug_draw() {
+
     for (i = 0; i < dish1count; i++) {
-      xpos = Math.random(300);
-      ypos = Math.random(300);
-      document.getElementById("left_canvas").drawImage("images/pillbug.png", xpos, ypos);
+
+      xpos = Math.floor(Math.random(300) * 250);
+      ypos = Math.floor(Math.random(300) * 100);
+
+      var canvas = document.getElementById('left_circle');
+      var ctx = canvas.getContext('2d');
+      var img = document.getElementById("pic_two");
+
+      ctx.drawImage(img, xpos, ypos, 30, 30);
+
     }
-    for (i = 0; i < dish2count; i++) {
-      xpos = Math.random(300);
-      ypos = Math.random(300);
-      document.getElementById("right_circle").getContext("2d").drawImage("images/pillbug.png", xpos, ypos);
+
+    for (i = 0; i < dish1count; i++) {
+
+      xpos = Math.floor(Math.random(300) * 250);
+      ypos = Math.floor(Math.random(300) * 100);
+
+      var canvas = document.getElementById('right_circle');
+      var ctx = canvas.getContext('2d');
+      var img = document.getElementById("pic_two");
+
+      ctx.drawImage(img, xpos, ypos, 30, 30);
     }
   };
+
 
 
   $("#button_one").on("click", function() {
@@ -158,18 +186,23 @@ $(document).ready(function() {
       }
       // set count in each dish
       dish2count = 10 - dish1count;
-      // for (i = 0; i < dish1count; i++) {
-      //   xpos = Math.random(300);
-      //   ypos = Math.random(300);
-      //   document.getElementById('fileinput').addEventListener('add', function() {
-      //
-      //   });
-      // }
-      // for (i = 0; i < dish2count; i++) {
-      //   xpos = Math.random(300);
-      //   ypos = Math.random(300);
-      //   document.getElementById("right_circle").drawImage("images/pillbug.png", xpos, ypos);
-      // } //TODO: add result portion of function
+      for (i = 0; i < dish1count; i++) {
+        xpos = Math.floor(Math.random(300) * 100);
+        ypos = Math.floor(Math.random(300) * 100);
+        var canvas = document.getElementById('left_circle');
+        var ctx = canvas.getContext('2d');
+        var img = document.getElementById("pic_two");
+        ctx.drawImage(img, xpos, ypos, 30, 30);
+      }
+      for (i = 0; i < dish2count; i++) {
+        xpos = Math.floor(Math.random(300) * 250);
+        ypos = Math.floor(Math.random(300) * 100);
+        var canvas = document.getElementById('right_circle');
+        var ctx = canvas.getContext('2d');
+        var img = document.getElementById("pic_two");
+        ctx.drawImage(img, xpos, ypos, 30, 30);
+        ctx.drawImage(dish2count)
+      } //TODO: add result portion of function
     }
   });
 
