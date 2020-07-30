@@ -10,7 +10,7 @@ This script runs buttons for pill bug lab
 // Check that document is fully loaded
 $(document).ready(function() {
 
-  var trial = 0;
+  var trial = 1;
   var dish1count = 5;
   var dish2count = 5;
   var report = [];
@@ -177,6 +177,7 @@ $(document).ready(function() {
       }
       // set count in each dish
       dish2count = 10 - dish1count;
+      //Display the ammount of bugs in each dish
       document.getElementById("left-count").innerHTML = "There are " + dish1count + " bugs in the left dish"
       document.getElementById("right-count").innerHTML = "There are " + dish2count + " bugs in the left dish"
       // Resets left canvas
@@ -210,7 +211,9 @@ $(document).ready(function() {
         var ctx = canvas.getContext('2d');
         var img = document.getElementById("pic_two");
         ctx.drawImage(img, xpos, ypos, 30, 30);
-      } //TODO: add result portion of function
+      }
+    } else {
+      window.confirm("Tiral | Number of bugs in left dish | Number of bugs in right dish" + "\r\n" + report[0] + "\r\n" + report[1] + "\r\n" + report[2] + "\r\n" + report[3] + "\r\n" + report[4] + "\r\n" + report[5] + "\r\n" + report[6] + "\r\n" + report[7] + "\r\n" + report[8] + "\r\n" + report[9]);
     }
   });
 
