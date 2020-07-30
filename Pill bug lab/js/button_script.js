@@ -21,7 +21,7 @@ $(document).ready(function() {
   var modify = 0;
   var xpos = 0;
   var ypos = 0;
-  var i = 0;
+
 
 
   window.onload = bug_draw();
@@ -29,7 +29,9 @@ $(document).ready(function() {
 
   function bug_draw() {
 
-    for (i = 0; i < dish1count; i++) {
+    document.getElementById("left-count").innerHTML = "There are " + dish1count + " bugs in the left dish"
+    document.getElementById("right-count").innerHTML = "There are " + dish2count + " bugs in the left dish"
+    for (var i = 0; i < dish1count; i++) {
 
       xpos = Math.floor(Math.random(300) * 250);
       ypos = Math.floor(Math.random(300) * 100);
@@ -42,15 +44,12 @@ $(document).ready(function() {
 
     }
 
-    for (i = 0; i < dish1count; i++) {
-
+    for (var i = 0; i < dish1count; i++) {
       xpos = Math.floor(Math.random(300) * 250);
       ypos = Math.floor(Math.random(300) * 100);
-
       var canvas = document.getElementById('right_circle');
       var ctx = canvas.getContext('2d');
       var img = document.getElementById("pic_two");
-
       ctx.drawImage(img, xpos, ypos, 30, 30);
     }
   };
@@ -178,6 +177,8 @@ $(document).ready(function() {
       }
       // set count in each dish
       dish2count = 10 - dish1count;
+      document.getElementById("left-count").innerHTML = "There are " + dish1count + " bugs in the left dish"
+      document.getElementById("right-count").innerHTML = "There are " + dish2count + " bugs in the left dish"
       // Resets left canvas
       const parentLeft = document.getElementById('div-left');
       parentLeft.innerHTML = "";
@@ -186,8 +187,8 @@ $(document).ready(function() {
       reloadedCanvasLeft.setAttribute('style', 'height: 300px; width: 300px; border: 1px solid #000;');
       parentLeft.appendChild(reloadedCanvasLeft);
       // Draws bugs on left canvas
-      for (i = 0; i < dish1count; i++) {
-        xpos = Math.floor(Math.random(300) * 100);
+      for (var i = 0; i < dish1count; i++) {
+        xpos = Math.floor(Math.random(300) * 250);
         ypos = Math.floor(Math.random(300) * 100);
         var canvas = document.getElementById('left_circle');
         var ctx = canvas.getContext('2d');
@@ -202,14 +203,13 @@ $(document).ready(function() {
       reloadedCanvasRight.setAttribute('style', 'height: 300px; width: 300px; border: 1px solid #000;');
       parentRight.appendChild(reloadedCanvasRight);
       // Draws bugs on right canvas
-      for (i = 0; i < dish2count; i++) {
+      for (var i = 0; i < dish2count; i++) {
         xpos = Math.floor(Math.random(300) * 250);
         ypos = Math.floor(Math.random(300) * 100);
         var canvas = document.getElementById('right_circle');
         var ctx = canvas.getContext('2d');
         var img = document.getElementById("pic_two");
         ctx.drawImage(img, xpos, ypos, 30, 30);
-        ctx.drawImage(dish2count)
       } //TODO: add result portion of function
     }
   });
